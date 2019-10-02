@@ -8,7 +8,25 @@ class NavBar extends Component {
         return (<> 
             <div className = "container-fluid nav">
                 <div className="row">
-                    hello, it's a nav
+                    <nav className="black">
+                        <div className = "nav-wrapper">
+                            <Link to="/" className="left">AtlGaming</Link>
+                            <ul id="nav-mobile" className ="right">
+                                <li className = "nav-item">
+                                    <Link to="/tournaments">Tournaments</Link>
+                                </li>
+                                <li className = "nav-item">
+                                    <Link to="/community">Community(events)</Link>
+                                </li>
+                                <li className = "nav-item">
+                                    <Link to="/register">Register</Link>
+                                </li>
+                                <li className = "nav-item">
+                                    <Link to="/login">Login</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
             </div>
          </>);
