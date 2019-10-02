@@ -5,13 +5,15 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar';
+
 
 
 function App() {
   return (<>
     <Router>
     <div className = "App" >
-    <h1 > Hello ? </h1> 
+    <Route path ='/' component ={NavBar}/>
     </div>
 
     </Router> 
