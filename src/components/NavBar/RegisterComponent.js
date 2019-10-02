@@ -67,21 +67,30 @@ class RegisterComponent extends React.Component {
         }
     }
     render() { 
-        return ( 
-            <div className="register-form">
-                <p className="form-msg">{this.state.msg}</p>
-                <form onSubmit={this.submitSignUp}>
+        return (<> 
+        <div className="session-layout">
+            <div className="container">
+                <div className="signup-side">
+                    <div className="text">
+                        <p>Sign up and start playing</p>
+                    </div>
+                </div>
+                <div className="register-form">
+                    <p className="form-msg">{this.state.msg}</p>
+                    <form onSubmit={this.submitSignUp}>
+                        <input onChange={this.changeEmail} value={this.state.email} className="email-signup" placeholder="Email address" />
+                        <input onChange={this.changeFirst} value={this.state.first} className="first-signup" placeholder="First name" />
+                        <input onChange={this.changeLast} value={this.state.last} className="last-signup" placeholder="Last name" />
+                        <input onChange={this.changePass} value={this.state.pass} className="password-signup" placeholder="Password" type="password" />
+                        <button className="sign-up-button">Sign up</button>
+                    <div className="border-rule"></div>
+                        <div className="login-text align-left">Already have an AtlGaming account? <button className="btn-primary" onClick={()=>{this.props.changeModalContent('login')}}>Log in</button></div>
+                    </form>
+                </div> 
+            </div>
 
-                    <input onChange={this.changeEmail} value={this.state.email} className="email-signup" placeholder="Email address" />
-                    <input onChange={this.changeFirst} value={this.state.first} className="first-signup" placeholder="First name" />
-                    <input onChange={this.changeLast} value={this.state.last} className="last-signup" placeholder="Last name" />
-                    <input onChange={this.changePass} value={this.state.pass} className="password-signup" placeholder="Password" type="password" />
-                    <button className="sign-up-button">Sign up</button>
-                <div className="border-rule"></div>
-                    <div className="login-text align-left">Already have an AtlGaming account? <button className="btn-primary" onClick={()=>{this.props.changeModalContent('login')}}>Log in</button></div>
-                </form>
-            </div> 
-         );
+        </div>
+         </>);
     }
 }
 function mapStateToProps(state){

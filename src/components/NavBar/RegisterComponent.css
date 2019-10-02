@@ -1,3 +1,17 @@
+.session-layout {
+    display: flex;
+    height: 100vh !important;
+    border: 1px solid black;
+    display: block;
+    padding-top: 64px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
 .register-form {
-    height: 100vh;
+    justify-content: flex-end;
+}
+.signup-side {
+    justify-content: flex-start;
 }

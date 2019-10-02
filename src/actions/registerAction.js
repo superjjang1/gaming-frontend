@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 export default (data) =>{
-    console.log(data);
-    const signupUrl = `${window.apiHost}/Register`
+    const signupUrl = `${window.apiHost}/users/register`
     const axiosResponse = axios.post(signupUrl,data);
     return{
         type: "signUp",
