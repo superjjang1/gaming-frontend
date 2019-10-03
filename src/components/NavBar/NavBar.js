@@ -8,7 +8,7 @@ class NavBar extends Component {
         return (<> 
             <div className = "container-fluid nav">
                 <div className="row">
-                    <nav className="black">
+                    <nav className="transparent">
                         <div className = "nav-wrapper">
                             <Link to="/" className="left">AtlGaming</Link>
                             <ul id="nav-mobile" className ="right">

@@ -12,13 +12,20 @@ class Home extends Component {
                         <p className="lead">"Find others to play video games with, or organize how your games are played with friends.</p>
                     </div>
                     <div className="actions">
-                        <a class="btn btn-primary btn-lg -x-full-width blue" href="/tournaments">create tournament</a>
-                        <a class="btn btn-primary btn-lg -x-full-width red" href="/community">create community</a>
+                        <a className="btn btn-primary btn-lg -x-full-width blue" href="/tournaments">create tournament</a>
+                        <a className="btn btn-primary btn-lg -x-full-width red" href="/community">create community</a>
                     </div>
                     <div className="placeholder">
                         <img className="img" src="" alt="some bracket looking thing" />
                     </div>
                 </div>
+                <section className="featured-content">
+                    <div className="container-fluid">
+                        <div className="featured-content">
+                            <div><h1>something will go here eventually</h1></div>
+                        </div>
+                    </div>
+                </section>
             </div>
          </>);
     }

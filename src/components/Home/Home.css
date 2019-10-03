@@ -1,4 +1,14 @@
 .home {
     height: 100vh !important;
-
+}
+.bill-board {
+    padding: 20px;
+    background-color: #272a33;
+    color: #d8d8d8;
+    background: url('https://i.imgur.com/C2Cu4b0.jpg');
+    background-size: cover;
+}
+.featured-content{
+    background-color: #272a33;
+    background-size: cover;
 }
