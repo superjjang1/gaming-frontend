@@ -6,6 +6,7 @@ import tournamentAction from '../../actions/tournamentAction';
 import axios from 'axios';
 import moment from 'moment';
 
+
 class newTournament extends Component {
     state = {
         name: "",
@@ -13,7 +14,16 @@ class newTournament extends Component {
         url: "",
         decription: "",
         participants: 0,
-        date: ""
+        date: "",
+        time: ``
+    }
+    componentDidMount(){
+        let options = {setDefaultDate: "DATEFROMOMENT", defaultDate:"DATEFROMOMENT",}
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.timepicker');
+            var instances = window.M.Timepicker.init(elems, options);
+          });
     }
     changeName = (e) =>{
         this.setState({name: e.target.value})
@@ -33,13 +43,13 @@ class newTournament extends Component {
     changeDate = (e) =>{
         const date1 = this.state.date1;
         const date1M = moment(date1);
-        if(moment(e.target.value).format('MMMM Do YYYY, h:mm a')){
+        if(moment(e.target.value).format('MMMM Do YYYY, hh:mm a')){
             this.setState({date: e.target.value})
         }
         this.setState({date1:e.target.value})
     }
     changeTime=(e)=>{
-        
+        this.setState({time: e.target.value})
     }
     render() { 
         
@@ -105,7 +115,7 @@ class newTournament extends Component {
                                         <span className="field-label">Start Date</span>
                                         <div className="input-field col s12" id="date">
                                             <input onChange={this.changeDate} value={this.state.date} type ="date" />
-                                            <input type="text" className="timepicker"/>
+                                            <input type="time" className="timepicker" onChange={this.changeTime} value={this.state.time}/>
                                         </div>
                                     </div>
                                 
