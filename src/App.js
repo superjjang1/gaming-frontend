@@ -8,6 +8,7 @@ import {
 import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home';
 import RegisterComponent from './components/NavBar/RegisterComponent';
+import Login from './components/NavBar/Login';
 
 
 
@@ -18,6 +19,7 @@ function App() {
     <Route path ='/' component ={NavBar}/>
     <Route exact path ="/" component ={Home}/>
     <Route exact path="/register" component = {RegisterComponent}/>
+    <Route exact path="/login" component={Login}/>
     </div>
 
     </Router> 
