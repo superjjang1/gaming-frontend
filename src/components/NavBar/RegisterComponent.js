@@ -8,6 +8,7 @@ import './RegisterComponent.css'
 class RegisterComponent extends React.Component {
     state = {
         email: "",
+        displayname: "",
         first: "",
         last: "",
         pass: "",
@@ -22,6 +23,9 @@ class RegisterComponent extends React.Component {
     }
     changeEmail = (e) => {
         this.setState({email: e.target.value})
+    }
+    changeDisplayName = (e) => {
+        this.setState({displayname: e.target.value})
     }
     changeFirst = (e) => {
         this.setState({first: e.target.value})
@@ -79,6 +83,7 @@ class RegisterComponent extends React.Component {
                     <p className="form-msg">{this.state.msg}</p>
                     <form onSubmit={this.submitSignUp}>
                         <input onChange={this.changeEmail} value={this.state.email} className="email-signup" placeholder="Email address" />
+                        <input onChange={this.changeDisplayName} value={this.state.displayname} className="display-signup" placeholder="Display name" />
                         <input onChange={this.changeFirst} value={this.state.first} className="first-signup" placeholder="First name" />
                         <input onChange={this.changeLast} value={this.state.last} className="last-signup" placeholder="Last name" />
                         <input onChange={this.changePass} value={this.state.pass} className="password-signup" placeholder="Password" type="password" />
