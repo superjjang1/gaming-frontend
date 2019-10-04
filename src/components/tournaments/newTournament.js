@@ -5,6 +5,7 @@ import tournamentAction from '../../actions/tournamentAction';
 import axios from 'axios';
 import moment from 'moment';
 import {bindActionCreators} from 'redux';
+import M from 'materialize-css';
 
 
 class newTournament extends Component {
@@ -54,6 +55,11 @@ class newTournament extends Component {
         })
     }
     
+    changeTime=(e)=>{
+        this.setState({time: e.target.value})
+        console.log(this.state.time);
+    }
+    
     changeDate2 = (e)=>{
         this.setState({date2:e.target.value}, (event) => {
             const date1 = this.state.date1;
@@ -74,6 +80,7 @@ class newTournament extends Component {
         })
         
     }
+    
     submitTournament = async (e) => {
         e.preventDefault();
         console.log(this.props.auth)
@@ -105,22 +112,24 @@ class newTournament extends Component {
         //     console.log('this is running', elems.length)
         // });
         
+        M.AutoInit();
         if(!this.props.auth.token){
             localStorage.setItem('loginPage','/tournament/new')
             this.props.history.push('/login')
+            let options = {setDefaultTime: "DATEFROMOMENT", defaultTime:"DATEFROMOMENT",}
+            document.addEventListener('DOMContentLoaded',function(){
+                var elems = document.querySelectorAll('.timepicker');
+                var instances = window.M.Timepicker.init(elems, options);
+            })
         }
     }
-    changeTime=(e)=>{
-        this.setState({time: e.target.value})
-    }
     render() { 
-        let options = {setDefaultDate: "DATEFROMOMENT", defaultDate:"DATEFROMOMENT",}
-        setTimeout(() => {
-            var elems = document.querySelectorAll('.timepicker');
-            var instances = window.M.Timepicker.init(elems, options);
-            console.log('this is running', elems.length)
-            console.log('this is not gud, but it werkz')            
-        }, 300);
+        console.log(this.state.time);
+        // let options = {setDefaultDate: "DATEFROMOMENT", defaultDate:"DATEFROMOMENT",}
+        // setTimeout(() => {
+        //     var elems = document.querySelectorAll('.timepicker');
+        //     var instances = window.M.Timepicker.init(elems, options);
+        // }, 300);
         
         return (<> 
             <div className="session-layout">
@@ -194,7 +203,11 @@ class newTournament extends Component {
                                         <span className="field-label">Start Date and Time</span>
                                         <div className="input-field col s12" id="date">
                                             <input onChange={this.changeDate1} value={this.state.date1} type ="date" />
-                                            <input type="datetime" className="timepicker" onChange={this.changeTime} value={this.state.time}/>
+                                            <input type="datetime" className="timepicker" onChange={()=>{
+                                                console.log('click')
+                                                return this.changeTime.bind(this);
+                                            }
+                                            } value={this.state.time}/>
                                             
                                         </div>
                                         <span className="field-label">End Date</span>
