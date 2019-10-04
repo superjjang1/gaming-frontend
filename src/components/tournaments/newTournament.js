@@ -15,7 +15,7 @@ class newTournament extends Component {
         decription: "",
         participants: 0,
         date: "",
-        time: ``
+        time: ""
     }
     componentDidMount(){
         let options = {setDefaultDate: "DATEFROMOMENT", defaultDate:"DATEFROMOMENT",}
@@ -107,7 +107,7 @@ class newTournament extends Component {
                                     <div className="inline-field">
                                         <span className="field-label">Participants</span>
                                         <div className="input-field col s12" id="guests">
-                                            <input onChange={this.changeParticipants}  value={this.state.participants} type="number" className="validate" />
+                                            <input onChange={this.changeParticipants}  value={this.state.participants} type="number" className="validate" min="0" />
                                             <label htmlFor="guests">Participants</label>
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@ class newTournament extends Component {
                                         <span className="field-label">Start Date</span>
                                         <div className="input-field col s12" id="date">
                                             <input onChange={this.changeDate} value={this.state.date} type ="date" />
-                                            <input type="time" className="timepicker" onChange={this.changeTime} value={this.state.time}/>
+                                            <input type="datetime" className="timepicker" onChange={this.changeTime} value={this.state.time}/>
                                         </div>
                                     </div>
                                 
