@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Home.css';
+import {Link} from 'react-router-dom';
 
 class Home extends Component {
 
@@ -12,8 +13,8 @@ class Home extends Component {
                         <p className="lead">"Find others to play video games with, or organize how your games are played with friends.</p>
                     </div>
                     <div className="actions">
-                        <a className="btn btn-primary btn-lg -x-full-width blue" href="/tournaments/new">create tournament</a>
-                        <a className="btn btn-primary btn-lg -x-full-width red" href="/community">create community</a>
+                        <Link className="btn btn-primary btn-lg -x-full-width blue" to="/tournaments/new">create tournament</Link>
+                        <Link className="btn btn-primary btn-lg -x-full-width red" to="/community">create community</Link>
                     </div>
                     <div className="placeholder">
                         <img className="img" src="" alt="some bracket looking thing" />

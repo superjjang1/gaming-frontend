@@ -36,7 +36,7 @@ class Login extends Component {
         const formData = {...this.state};
         this.props.login(formData);
     }
-
+    
     render() { 
         return (
             <div className = "session-layout">

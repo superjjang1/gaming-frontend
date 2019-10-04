@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './newTournament.css';
-import {bindActionCreators} from 'redux';
 import tournamentAction from '../../actions/tournamentAction';
 import axios from 'axios';
 import moment from 'moment';
+import {bindActionCreators} from 'redux';
 
 
 class newTournament extends Component {
@@ -14,16 +14,19 @@ class newTournament extends Component {
         url: "",
         decription: "",
         participants: 0,
-        date: "",
-        time: ""
+        date1: "",
+        date2: "",
+        time: "",
+        daysDiff: 0
     }
-    componentDidMount(){
-        let options = {setDefaultDate: "DATEFROMOMENT", defaultDate:"DATEFROMOMENT",}
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.timepicker');
-            var instances = window.M.Timepicker.init(elems, options);
-          });
+    componentDidUpdate(prevProps, prevState){
+        if(prevProps.newTournament.msg !== this.props.newTournament.msg){
+            if(this.props.newTournament.msg ==='tournamentAdded'){
+                this.setState({
+                    msg: 'Tournament Added'
+                })
+            }
+        }
     }
     changeName = (e) =>{
         this.setState({name: e.target.value})
@@ -40,18 +43,73 @@ class newTournament extends Component {
     changeParticipants = (e) =>{
         this.setState({participants: e.target.value})
     }
-    changeDate = (e) =>{
-        const date1 = this.state.date1;
-        const date1M = moment(date1);
-        if(moment(e.target.value).format('MMMM Do YYYY, hh:mm a')){
-            this.setState({date: e.target.value})
+    changeDate1 = (e)=>{
+        this.setState({date1:e.target.value}, (event) => {
+            const date1 = this.state.date1;
+            const date2 = this.state.date2;
+            const date1M = moment(date1);
+            const date2M = moment(date2);
+            if(moment(date1) > moment(date2)){
+                this.setState({
+                    datesMsg: "Start date must be before end date"
+                })
+            }else if((date1)&&(date2)){
+                const daysDiff = -date1M.diff(date2M, 'days');
+                this.setState({
+                    daysDiff
+                })
+            }
+        })
+    }
+    onSubmit = (e) => {
+        e.preventDefault();
+        const data = new FormData()
+        data.append('token', this.props.auth.token);
+        this.props.tournamentAction(data)
+    }
+    changeDate2 = (e)=>{
+        this.setState({date2:e.target.value}, (event) => {
+            const date1 = this.state.date1;
+            const date2 = this.state.date2;
+            const date1M = moment(date1);
+            const date2M = moment(date2);
+            if(moment(date2) < moment(date1)){
+                this.setState({
+                    datesMsg: "Start date must be before End Date"
+                })
+            }else if((date1)&&(date2)){
+                const daysDiff = -date1M.diff(date2M, 'days');
+                console.log(daysDiff)
+                this.setState({
+                    daysDiff
+                })
+            }
+        })
+        
+    }
+    componentDidMount(){
+        if(!this.props.auth.token){
+            localStorage.setItem('loginPage','/tournament/new')
+            this.props.history.push('/login')
         }
-        this.setState({date1:e.target.value})
+        var elem = document.querySelectorAll('select');
+        var instances = window.M.FormSelect.init(elem);
+        
+        
+        let options = {setDefaultDate: "DATEFROMOMENT", defaultDate:"DATEFROMOMENT",}
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.timepicker');
+            var instances = window.M.Timepicker.init(elems, options);
+            });
     }
     changeTime=(e)=>{
         this.setState({time: e.target.value})
     }
     render() { 
+        let button;
+        if(this.props.auth.token){
+            
+        }
         
         return (<> 
             <div className="session-layout">
@@ -79,10 +137,11 @@ class newTournament extends Component {
                                 <div className="body">
                                     <div className="inline-field">
                                         <span className="lbl">
-                                            <label className="field-label -required" htmlFor="tournament_name">Tournament name</label>
+                                            Tournament name
                                         </span>
-                                        <div className="control">
-                                            <input maxLength="60" required="required" className="auto-focus form-control" size="60" type="text" name="tournament[name]" id="tournament_name"></input>
+                                        <div className="input-field col s12">
+                                            <textarea id="textarea2" className="materialize-textarea" data-length="30"></textarea>
+                                            <label htmlFor="textarea2">Tournament Name</label>
                                         </div>
                                     </div>
                                     <div className="inline-field">
@@ -91,10 +150,10 @@ class newTournament extends Component {
                                         </span>
                                         <div className="input-group-addon">
                                             <span className="tournament_subdomain"></span>
-                                            something.com
+                                            something.com/
                                         </div>
                                         <div className="control">
-                                            <input className="enforce-uniqueness form-control field" data-uniqueness-url="/tournaments/check_url_availability" type="text" value="url" name="tournament[url]" id="tournament_url"></input>
+                                            <input className="enforce-uniqueness form-control field" data-uniqueness-url="/tournaments/check_url_availability" onChange={this.changeUrl} type="text" value={this.state.url} name="tournament[url]" id="tournament_url"></input>
                                         </div>
                                     </div>
                                     <div className="inline-field">
@@ -112,10 +171,14 @@ class newTournament extends Component {
                                         </div>
                                     </div>
                                     <div className="inline-field">
-                                        <span className="field-label">Start Date</span>
+                                        <span className="field-label">Start Date and Time</span>
                                         <div className="input-field col s12" id="date">
-                                            <input onChange={this.changeDate} value={this.state.date} type ="date" />
+                                            <input onChange={this.changeDate1} value={this.state.date1} type ="date" />
                                             <input type="datetime" className="timepicker" onChange={this.changeTime} value={this.state.time}/>
+                                        </div>
+                                        <span className="field-label">End Date</span>
+                                        <div className="input-field col s12" id="date">
+                                            <input onChange={this.changeDate2} value={this.state.date2} type="date" />
                                         </div>
                                     </div>
                                 
@@ -130,5 +193,16 @@ class newTournament extends Component {
          </>);
     }
 }
+
+function mapStateToProps(state){
+    return{
+        auth: state.auth
+    }
+}
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        tournamentAction:tournamentAction
+    },dispatch)
+}
  
-export default newTournament;
+export default connect(mapStateToProps,mapDispatchToProps)(newTournament);
