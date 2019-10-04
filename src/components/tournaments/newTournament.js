@@ -12,22 +12,14 @@ class newTournament extends Component {
         name: "",
         game: "",
         url: "",
-        decription: "",
+        description: "",
         participants: 0,
         date1: "",
         date2: "",
         time: "",
         daysDiff: 0
     }
-    componentDidUpdate(prevProps, prevState){
-        if(prevProps.newTournament.msg !== this.props.newTournament.msg){
-            if(this.props.newTournament.msg ==='tournamentAdded'){
-                this.setState({
-                    msg: 'Tournament Added'
-                })
-            }
-        }
-    }
+    
     changeName = (e) =>{
         this.setState({name: e.target.value})
     }
@@ -61,12 +53,7 @@ class newTournament extends Component {
             }
         })
     }
-    onSubmit = (e) => {
-        e.preventDefault();
-        const data = new FormData()
-        data.append('token', this.props.auth.token);
-        this.props.tournamentAction(data)
-    }
+    
     changeDate2 = (e)=>{
         this.setState({date2:e.target.value}, (event) => {
             const date1 = this.state.date1;
@@ -87,29 +74,53 @@ class newTournament extends Component {
         })
         
     }
+    submitTournament = async (e) => {
+        e.preventDefault();
+        console.log(this.props.auth)
+
+        const headerConfig = {
+            headers: {
+                'content-type': 'application/json'
+            }
+        
+        }
+        const data = new FormData();
+        for(let key in this.state){
+            data.append(key,this.state[key])
+        }
+        const submitTournamentUrl = `${window.apiHost}/tournaments/new`
+        let dataToSend = {...this.state, token:this.props.auth.token}
+        // data.append('token',this.props.auth.token);
+        console.log(data);
+        const axiosResponse = await axios.post(submitTournamentUrl,dataToSend,headerConfig);
+        console.log(axiosResponse.data)
+    }
     componentDidMount(){
+        // var elem = document.querySelectorAll('select');
+        // var instances = window.M.FormSelect.init(elem);
+        // let options = {setDefaultDate: "DATEFROMOMENT", defaultDate:"DATEFROMOMENT",}
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     var elems = document.querySelectorAll('.timepicker');
+        //     var instances = window.M.Timepicker.init(elems, options);
+        //     console.log('this is running', elems.length)
+        // });
+        
         if(!this.props.auth.token){
             localStorage.setItem('loginPage','/tournament/new')
             this.props.history.push('/login')
         }
-        var elem = document.querySelectorAll('select');
-        var instances = window.M.FormSelect.init(elem);
-        
-        
-        let options = {setDefaultDate: "DATEFROMOMENT", defaultDate:"DATEFROMOMENT",}
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.timepicker');
-            var instances = window.M.Timepicker.init(elems, options);
-            });
     }
     changeTime=(e)=>{
         this.setState({time: e.target.value})
     }
     render() { 
-        let button;
-        if(this.props.auth.token){
-            
-        }
+        let options = {setDefaultDate: "DATEFROMOMENT", defaultDate:"DATEFROMOMENT",}
+        setTimeout(() => {
+            var elems = document.querySelectorAll('.timepicker');
+            var instances = window.M.Timepicker.init(elems, options);
+            console.log('this is running', elems.length)
+            console.log('this is not gud, but it werkz')            
+        }, 300);
         
         return (<> 
             <div className="session-layout">
@@ -128,7 +139,7 @@ class newTournament extends Component {
                         </div>
                     </fieldset>
                     <fieldset className="form-fieldset"></fieldset>
-                    <form id="tournament_form" className="new_tournament" acceptCharset="UTF-8" method="post">
+                    <form onSubmit={this.submitTournament} id="tournament_form" className="new_tournament" acceptCharset="UTF-8" method="post">
                         <fieldset className="form-fieldset">
                             <div className="form-panel">
                                 <div className="form-panel-heading">
@@ -140,8 +151,17 @@ class newTournament extends Component {
                                             Tournament name
                                         </span>
                                         <div className="input-field col s12">
-                                            <textarea id="textarea2" className="materialize-textarea" data-length="30"></textarea>
+                                            <textarea id="textarea2" className="materialize-textarea" data-length="30" onChange={this.changeName}  value={this.state.name}></textarea>
                                             <label htmlFor="textarea2">Tournament Name</label>
+                                        </div>
+                                    </div>
+                                    <div className="inline-field">
+                                        <span className="lbl">
+                                            Game:
+                                        </span>
+                                        <div className="input-field col s12">
+                                            <textarea id="textarea2" className="materialize-textarea" data-length="30" onChange={this.changeGame}  value={this.state.game}></textarea>
+                                            <label htmlFor="textarea2">Game</label>
                                         </div>
                                     </div>
                                     <div className="inline-field">
@@ -159,7 +179,7 @@ class newTournament extends Component {
                                     <div className="inline-field">
                                         <span className="field-label">Description</span>
                                         <div className="input-field col s12">
-                                            <textarea id="textarea2" className="materialize-textarea" data-length="400"></textarea>
+                                            <textarea id="textarea2" className="materialize-textarea" data-length="400" onChange={this.changeDescription}  value={this.state.description} ></textarea>
                                             <label htmlFor="textarea2">400 Character limit</label>
                                         </div>
                                     </div>
@@ -175,6 +195,7 @@ class newTournament extends Component {
                                         <div className="input-field col s12" id="date">
                                             <input onChange={this.changeDate1} value={this.state.date1} type ="date" />
                                             <input type="datetime" className="timepicker" onChange={this.changeTime} value={this.state.time}/>
+                                            
                                         </div>
                                         <span className="field-label">End Date</span>
                                         <div className="input-field col s12" id="date">
@@ -184,6 +205,7 @@ class newTournament extends Component {
                                 
                                 </div>
                             </div>
+                        <button className="sign-up-button">Submit Your Tournament</button>
                         </fieldset>
                     </form>
                 </div>
