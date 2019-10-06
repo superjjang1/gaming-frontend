@@ -6,6 +6,14 @@ import axios from 'axios';
 import moment from 'moment';
 import {bindActionCreators} from 'redux';
 import M from 'materialize-css';
+// import {
+//     MuiPickersUtilsProvider,
+//     KeyboardTimePicker,
+//     KeyboardDatePicker,
+//   } from '@material-ui/pickers';
+// import DateFnsUtils from '@date-io/date-fns';
+// import 'date-fns';
+
 
 
 class newTournament extends Component {
@@ -57,7 +65,7 @@ class newTournament extends Component {
     
     changeTime=(e)=>{
         this.setState({time: e.target.value})
-        console.log(this.state.time);
+        
     }
     
     changeDate2 = (e)=>{
@@ -113,18 +121,19 @@ class newTournament extends Component {
         // });
         
         M.AutoInit();
+        console.log(this.state.time);
         if(!this.props.auth.token){
             localStorage.setItem('loginPage','/tournament/new')
             this.props.history.push('/login')
-            let options = {setDefaultTime: "DATEFROMOMENT", defaultTime:"DATEFROMOMENT",}
+            let options = {setDefaultDate: "DATEFROMOMENT", defaultDate:"DATEFROMOMENT"}
             document.addEventListener('DOMContentLoaded',function(){
                 var elems = document.querySelectorAll('.timepicker');
                 var instances = window.M.Timepicker.init(elems, options);
+
             })
         }
     }
     render() { 
-        console.log(this.state.time);
         // let options = {setDefaultDate: "DATEFROMOMENT", defaultDate:"DATEFROMOMENT",}
         // setTimeout(() => {
         //     var elems = document.querySelectorAll('.timepicker');
@@ -203,11 +212,7 @@ class newTournament extends Component {
                                         <span className="field-label">Start Date and Time</span>
                                         <div className="input-field col s12" id="date">
                                             <input onChange={this.changeDate1} value={this.state.date1} type ="date" />
-                                            <input type="datetime" className="timepicker" onChange={()=>{
-                                                console.log('click')
-                                                return this.changeTime.bind(this);
-                                            }
-                                            } value={this.state.time}/>
+                                            <input type="time" className="time" onChange={this.changeTime} value={this.state.time}/>
                                             
                                         </div>
                                         <span className="field-label">End Date</span>
