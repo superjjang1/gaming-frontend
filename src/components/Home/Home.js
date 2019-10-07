@@ -14,7 +14,7 @@ class Home extends Component {
                     </div>
                     <div className="actions">
                         <Link className="btn btn-primary btn-lg -x-full-width blue" to="/tournaments/new">create tournament</Link>
-                        <Link className="btn btn-primary btn-lg -x-full-width red" to="/community">create community</Link>
+                        <Link className="btn btn-primary btn-lg -x-full-width red" to="/community/new">create community</Link>
                     </div>
                     <div className="placeholder">
                         <img className="img" src="" alt="some bracket looking thing" />
