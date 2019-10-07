@@ -50,7 +50,7 @@ class NavBar extends Component {
     render() { 
         let navColor="transparent";
         if(this.props.location.pathname !=='/') {
-            navColor = "black"
+            navColor = "transparent"
         }
         const navLinks = this.buildNavLinks();
         return (<> 
