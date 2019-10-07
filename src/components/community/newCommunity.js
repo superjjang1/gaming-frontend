@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './newCommunity.css';
 import axios from 'axios';
-import {Select} from 'react-materialize';
+import { bindActionCreators } from '../../../../../../../../Library/Caches/typescript/3.5/node_modules/redux';
+import communityAction from '../../actions/communityAction';
 
 
 class newCommunity extends Component {
@@ -23,21 +24,48 @@ class newCommunity extends Component {
     changeDescription = (e) =>{
         this.setState({description: e.target.value})
     }
+    submitCommunity = async (e) => {
+        e.preventDefault();
+        console.log(this.props.auth)
+
+        const headerConfig = {
+            headers: {
+                'content-type': 'application/json'
+            }
+        
+        }
+        const data = new FormData();
+        for(let key in this.state){
+            data.append(key,this.state[key])
+        }
+        const submitCommunityUrl = `${window.apiHost}/community/new`
+        let dataToSend = {...this.state, token:this.props.auth.token}
+        // data.append('token',this.props.auth.token);
+        console.log(data);
+        const axiosResponse = await axios.post(submitCommunityUrl,dataToSend,headerConfig);
+        console.log(axiosResponse.data)
+    }
+    componentDidMount(){
+        if(!this.props.auth.token){
+            localStorage.setItem('loginPage','/community/new')
+            this.props.history.push('/login')
+        }
+    }
     render() { 
         return (<> 
         <div className="session-layout">
             <div className="row-wrap">
-                <form className="col s12">
+                <form className="col s12" onSubmit={this.submitCommunity}>
                     <div className="row">
                         <div className="input-field col s6">
-                            <input id="community-name" type="text" className = "validate"/>
+                            <input id="community-name" type="text" className = "validate" onChange={this.changeName}  value={this.state.name}/>
                             <label htmlFor="community-name">Community name</label>
                         </div>
                         <div className="input-field col s6">
                             <label>What type of community?</label>
                             </div>
                             <div className="input-field col s3">
-                            <select className="browser-default" type="text">
+                            <select className="browser-default" type="text" onChange={this.changeType}  value={this.state.type} >
                                 <option value="undefined"></option>
                                 <option value="competitive">competitive</option>
                                 <option value="casual">casual</option>
@@ -62,5 +90,15 @@ class newCommunity extends Component {
          </>);
     }
 }
+function mapStateToProps(state){
+    return{
+        auth: state.auth
+    }
+}
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        communityAction:communityAction
+    },dispatch)
+}
  
-export default newCommunity;
+export default connect(mapStateToProps,mapDispatchToProps)(newCommunity);
