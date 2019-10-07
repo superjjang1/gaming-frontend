@@ -14,6 +14,15 @@ class newCommunity extends Component {
             description:""
          }
     }
+    changeName = (e) =>{
+        this.setState({name: e.target.value})
+    }
+    changeType = (e) =>{
+        this.setState({type: e.target.value})
+    }
+    changeDescription = (e) =>{
+        this.setState({description: e.target.value})
+    }
     render() { 
         return (<> 
         <div className="session-layout">
@@ -44,6 +53,8 @@ class newCommunity extends Component {
                                     </div>
                         
                     </div>
+                    <button className="btn btn-primary btn-lg -x-full-width blue">Submit Your Community</button>
+
                 </form>
             </div>
         </div>
