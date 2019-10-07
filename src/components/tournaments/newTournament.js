@@ -203,9 +203,16 @@ class newTournament extends Component {
                                     </div>
                                     <div className="inline-field">
                                         <span className="field-label">Participants</span>
-                                        <div className="input-field col s12" id="guests">
-                                            <input onChange={this.changeParticipants}  value={this.state.participants} type="number" className="validate" min="0" />
-                                            <label htmlFor="guests">Participants</label>
+                                        <div className="input-field col s12" id="participants">
+                                            <label htmlFor="participants">
+                                            </label>
+                                            <select onChange={this.changeParticipants}  value={this.state.participants} type="number" className="validate" min="0" >
+                                                <option value="undefined" />
+                                                <option value="4">4</option>
+                                                <option value="8">8</option>
+                                                <option value="16">16</option>
+                                            </select>
+                                            
                                         </div>
                                     </div>
                                     <div className="inline-field">
