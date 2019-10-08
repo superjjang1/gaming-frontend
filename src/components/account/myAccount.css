@@ -1,0 +1,25 @@
+.cover_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    display: block;
+    justify-content: center;
+    z-index:2;
+}
+.btn {
+    display: inline-block;
+    position: relative;
+    z-index:3;
+    top: -40px;
+    align-content: flex-end;
+}
+
+.descriptionBox {
+    border: 5px solid black;
+    height: 20vh;
+    width: 40vw;
+}
+.profileContainer{
+    display: flex;
+}
