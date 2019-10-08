@@ -23,3 +23,11 @@
 .profileContainer{
     display: flex;
 }
+.profileuploader {
+    display: flex;
+    justify-content: relative;
+}
+.btner {
+    left: -60px;
+    top: 30px;
+}
