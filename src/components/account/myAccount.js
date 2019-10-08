@@ -14,9 +14,9 @@ class myAccount extends Component {
         super(props);
         this.onButtonClick = this.onButtonClick.bind(this);
         this.state = { 
-            profileUrl: "",
+            profileUrl:"",
             bannerUrl:"",
-            profile:"hello",
+            profile:"",
             
         }
     }
@@ -25,7 +25,6 @@ class myAccount extends Component {
     }
     changeBannerUrl = (e) =>{
         this.setState({bannerUrl: e.target.value})
-        console.log(e.target.value);
     }
     changeDescription = (e) =>{
         this.setState({profile: e.target.value})
@@ -38,13 +37,16 @@ class myAccount extends Component {
         console.log(this.props.auth)
         const file = document.getElementById('banner-image').files[0];
         const file2 = document.getElementById('profile-image').files[0];
+        console.log(file2)
         const headerConfig = {
             headers: {
                 'content-type': 'application/json'
             }
         }
         const data = new FormData();
-        console.log(data);
+        data.append('profileImage',file2);
+        // console.dir(file);
+
         for(let key in this.state){
             data.append(key,this.state[key])
         }
@@ -71,8 +73,8 @@ class myAccount extends Component {
                     <div className="cover_image">
                     <img src="https://assets.challonge.com/assets/community_default_banners/default-cover-2-5cbf4c336b4a4d936909484c52f86909c7693aaac60209ffd084583347695bb2.svg" alt="banner"/>
                     <div className="uploader" >
-                        <input id="banner-image" type="file" ref="fileUploader" accept="image/*" style={{display:"none"}}/>
-                        <Button onClick={this.onButtonClick.bind(this)} variant="contained" component="span" className="btn right" onChange={this.changeBannerUrl}>Upload</Button>
+                        <input id="banner-image" type="file" ref="fileUploader" accept="image/*" style={{display:"none"}} onChange={this.changeBannerUrl}/>
+                        <Button onClick={this.onButtonClick.bind(this)} variant="contained" component="span" className="btn right"  >Upload</Button>
                     </div>
                     </div>
                     <div className="profileContainer row">
