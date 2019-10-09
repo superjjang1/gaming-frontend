@@ -38,7 +38,7 @@ class NavBar extends Component {
                     <Link to="/community">Community(events)</Link>
                 </li>
                 <li className = "nav-item">
-                    <Link to="/my-account">My Account</Link>
+                    <Link to="/my-account/">My Account</Link>
                 </li>
                 <li className = "nav-item" onClick={this.props.logout} >
                     Logout

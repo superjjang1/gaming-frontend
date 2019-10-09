@@ -13,6 +13,7 @@ import newTournament from './components/tournaments/newTournament';
 import bracketTournament from './components/tournaments/Tournament';
 import newCommunity from './components/community/newCommunity';
 import myAccount from './components/account/myAccount';
+import Account from './components/account/account';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
     <Route exact path ="/tournaments" component={bracketTournament}/>
     <Route exact path = "/community/new" component = {newCommunity}/>
     <Route exact path = "/my-account/edit" component ={myAccount}/>
+    <Route exact path = "/my-account" component ={Account}/>
     </div>
 
     </Router> 
