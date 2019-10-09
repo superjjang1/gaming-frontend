@@ -14,7 +14,7 @@ import bracketTournament from './components/tournaments/Tournament';
 import newCommunity from './components/community/newCommunity';
 import myAccount from './components/account/myAccount';
 import Account from './components/account/account';
-
+import theCommunity from './components/community/theCommunity';
 
 function App() {
   return (<>
@@ -29,6 +29,7 @@ function App() {
     <Route exact path = "/community/new" component = {newCommunity}/>
     <Route exact path = "/my-account/edit" component ={myAccount}/>
     <Route exact path = "/my-account" component ={Account}/>
+    <Route exact path = "/community" component={theCommunity}/>
     </div>
 
     </Router> 
