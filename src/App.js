@@ -26,7 +26,7 @@ function App() {
     <Route exact path="/tournaments/new" component={newTournament}/>
     <Route exact path ="/tournaments" component={bracketTournament}/>
     <Route exact path = "/community/new" component = {newCommunity}/>
-    <Route exact path = "/my-account" component ={myAccount}/>
+    <Route exact path = "/my-account/edit" component ={myAccount}/>
     </div>
 
     </Router> 
