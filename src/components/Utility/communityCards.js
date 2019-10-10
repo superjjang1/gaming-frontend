@@ -4,7 +4,7 @@ import './communityCard.css';
 
 class CommunityCard extends Component {
     render() {
-        const { name , type , description, displayname } = this.props.community
+        const { name , type , description, displayname, id } = this.props.community
         console.log(this.props.community.displayname)
         return(
             <div className="container-fluid">
