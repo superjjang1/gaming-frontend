@@ -4,7 +4,7 @@ import CommunityCard from './communityCards';
 function Communities(props) {
     const baseCards = props.communities.map((communities, i)=>{
         return (
-            <div key={i} className="col s3">
+            <div key={i} className="col s6">
                 <CommunityCard community={communities}/>
             </div>
         )

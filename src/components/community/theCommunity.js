@@ -5,10 +5,11 @@ import axios from 'axios';
 
 
 
-class theCommunity extends Component {
+class TheCommunity extends Component {
     state = {communities: []}
     async componentDidMount(){
         const allCommunities = axios.get(`${window.apiHost}/community`)
+        console.log(allCommunities);
         allCommunities.then((resp)=>{
             const communities = resp.data;
             this.setState({
@@ -21,9 +22,12 @@ class theCommunity extends Component {
         
         return ( <div className="col s3">
             <h1>Communities</h1>
+            <div className="row">
+
             <Communities communities ={this.state.communities}/>
+            </div>
         </div> );
     }
 }
  
-export default theCommunity;
+export default TheCommunity;

@@ -4,16 +4,21 @@ import './communityCard.css';
 
 class CommunityCard extends Component {
     render() {
-        const { name , type , description } = this.props.community
-        console.log(this.props.community.uid)
+        const { name , type , description, displayname } = this.props.community
+        console.log(this.props.community.displayname)
         return(
             <div className="container-fluid">
                 <div className = "row">
-                    <div className="base-card col s6">
-                        <div className="card-panel black-text">
-                            <div className ="name-community card-title">name: {name}</div>
-                            <div className="type-community">type: {type}</div>
-                            <div className="description-community">description: {description}</div>
+                    <div className="col s6">
+                        <div className="card-panel blue-grey white-text z-depth-2">
+                            <div className ="name-community card-title">Name: {name}</div>
+                            <hr/>
+                            <div className="type-community">Type: {type}</div>
+                            <hr/>
+                            <div className="description-community">Description: {description}</div>
+                            <hr/>
+                            <div className="description-community">Creator: {displayname}</div>
+                            
                         </div>
                     </div>
                 </div>
