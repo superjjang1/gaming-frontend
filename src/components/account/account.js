@@ -1,0 +1,64 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import axios from 'axios';
+import {Link} from 'react-router-dom';
+import './account.css';
+
+
+class Account extends Component {
+    render() { 
+        console.log(this.props);
+        const {displayname, imageUrl, bannerUrl, profile} = this.props.auth;
+        console.log(bannerUrl);
+        const bannerImage = `${window.apiHost}${bannerUrl}`;
+        const profileImage = `${window.apiHost}${imageUrl}`;
+
+        console.log(bannerImage);
+        
+
+        return (<>
+            <div className="container-fluid">
+            <div className="topContainer">
+                    <div className="cover_image">
+                    <img src={bannerImage} alt="banner"/>
+                    {/* <div className="uploader" > */}
+                        {/* <input id="banner-image" type="file" ref="fileUploader1" accept="image/*" style={{display:"none"}} onChange={this.changeBannerUrl}/> */}
+                        {/* <Button onClick={this.onButtonClick2} variant="contained" component="span" className="btn right"  >Upload</Button> */}
+                        {/* <p onClick={this.onButtonClick2}>submit banner</p> */}
+                    {/* </div> */}
+                    </div>
+                    <div className="profileContainer row">
+                        <div className="col s3">
+                                <div className="profileuploader">
+                            <img src={profileImage} alt="profile" className="circle left"/>
+                            <div className="profileName left">{displayname}</div>
+                                {/* <input id="profile-image" type="file" ref="fileUploader" accept="image/*" style={{display:"none"}} onChange={this.changeProfileUrl}/> */}
+                        {/* <Button onClick={this.onButtonClick} variant="contained" component="span" className="btner right">+</Button> */}
+                        {/* <p onClick={this.onButtonClick}>submit profile</p> */}
+                                </div>
+                        </div>
+                        <div className="col s9 left">
+                            <div className="description">
+                                
+                                    {profile}
+                                    
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <Link to="/my-account/edit"> Update your profile </Link>
+            </div>
+            
+        </>);
+    }
+}
+function mapStateToProps(state){
+    return {
+        auth: state.auth
+    }
+}
+ 
+export default connect(mapStateToProps,null)(Account);
+

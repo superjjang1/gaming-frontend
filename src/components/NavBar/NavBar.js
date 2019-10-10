@@ -7,7 +7,7 @@ import logoutAction from '../../actions/logoutAction';
 
 class NavBar extends Component {
     buildNavLinks = () =>{
-        console.log(this.props);
+
         let navLinks = "";
         if(!this.props.auth.token){
             navLinks = 
@@ -38,7 +38,7 @@ class NavBar extends Component {
                     <Link to="/community">Community(events)</Link>
                 </li>
                 <li className = "nav-item">
-                    <Link to="/my-account">My Account</Link>
+                    <Link to="/my-account/">My Account</Link>
                 </li>
                 <li className = "nav-item" onClick={this.props.logout} >
                     Logout
@@ -50,7 +50,7 @@ class NavBar extends Component {
     render() { 
         let navColor="transparent";
         if(this.props.location.pathname !=='/') {
-            navColor = "black"
+            navColor = "transparent"
         }
         const navLinks = this.buildNavLinks();
         return (<> 
