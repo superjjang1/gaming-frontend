@@ -9,7 +9,6 @@ class TheCommunity extends Component {
     state = {communities: []}
     async componentDidMount(){
         const allCommunities = axios.get(`${window.apiHost}/community`)
-        console.log(allCommunities);
         allCommunities.then((resp)=>{
             const communities = resp.data;
             this.setState({
