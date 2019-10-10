@@ -1,4 +1,4 @@
-.base-card{
+/* .base-card{
     position: relative;
     overflow-wrap: break-word;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
@@ -13,7 +13,7 @@
 .base-card img{
     max-width: 100%;
 }
-.base-card .city-name, .base-card .price{
+.base-card .name-community .base-card .type-community .description-community{
     position: absolute;
     bottom: 25px;
     left: 0px;
@@ -21,8 +21,5 @@
     padding-bottom: 32px;
     padding-left: 24px;
     padding-right: 24px;    
-}
-.base-card .price{
-    bottom: 0px;   
-    font-weight: normal;
-}
+} */
+

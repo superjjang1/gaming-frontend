@@ -7,7 +7,7 @@ import logoutAction from '../../actions/logoutAction';
 
 class NavBar extends Component {
     buildNavLinks = () =>{
-        console.log(this.props);
+
         let navLinks = "";
         if(!this.props.auth.token){
             navLinks = 

@@ -1,17 +1,25 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './communityCard.css';
 
-function communityCard(props){
-    const {name, type, description} = this.props.community
-        return (
-            <div className="base-card col s12">
-                <div className="image">
-                    <h1>hahahha</h1>
+
+class CommunityCard extends Component {
+    render() {
+        const { name , type , description } = this.props.community
+        console.log(this.props.community.uid)
+        return(
+            <div className="container-fluid">
+                <div className = "row">
+                    <div className="base-card col s6">
+                        <div className="card-panel black-text">
+                            <div className ="name-community card-title">name: {name}</div>
+                            <div className="type-community">type: {type}</div>
+                            <div className="description-community">description: {description}</div>
+                        </div>
+                    </div>
                 </div>
-                <div className="city-name">{name}</div>
-                <div className="price">{type}</div>
-                <div className="city-name">{description}</div>
             </div>
         )
+    }
 }
-export default communityCard;
+
+export default CommunityCard;
