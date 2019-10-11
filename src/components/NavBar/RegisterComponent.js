@@ -89,7 +89,7 @@ class RegisterComponent extends React.Component {
                         <input onChange={this.changePass} value={this.state.pass} className="password-signup" placeholder="Password" type="password" />
                         <button className="sign-up-button">Sign up</button>
                     <div className="border-rule"></div>
-                        <div className="login-text align-left">Already have an AtlGaming account? <button className="btn-primary" onClick={()=>{this.props.changeModalContent('login')}}>Log in</button></div>
+                        <div className="login-text align-left">Already have an AtlGaming account? <button className="btn-primary" onClick={()=>{this.props.history.push('/login')}}>Log in</button></div>
                     </form>
                 </div> 
             </div>

@@ -51,7 +51,7 @@ class Login extends Component {
                             <input onChange={this.changePass} value={this.state.password} className="password-signup" placeholder="Password" type="password"/>
                             <button className="sign-up-button">Log In</button>
                             <div className="border-rule"></div>
-                            <div className="login-text align-left">Don't have an account? <span onClick={()=>{this.props.changeModalContent('signup')}} >Sign Up</span></div>
+                            <div className="login-text align-left">Don't have an account? <button onClick={()=>{this.props.history.push('/register')}} >Sign Up</button></div>
                         </form>
                     </div>
                 </div>
