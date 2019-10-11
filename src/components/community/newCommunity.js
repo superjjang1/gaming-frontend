@@ -41,13 +41,12 @@ class newCommunity extends Component {
             formValid = false;
             msg = "You're community name is too short...."
         }
-        if(this.state.description.toLowerCase()===this.state.description){
+        else if(this.state.description.toLowerCase()===this.state.description){
             formValid =false;
             msg = "You should put something in the description...."
-        }
-        if(this.state.type.toLowerCase() === this.state.type){
-            formValid = false;
-            msg = "what type of community are you?"
+        }else if (this.state !== this.state){
+            formValid = true;
+            msg = "thank you for creating a community."
         }
         if(formValid){
             const userData={...this.state}
@@ -73,7 +72,7 @@ class newCommunity extends Component {
         console.log(data);
         const axiosResponse = await axios.post(submitCommunityUrl,dataToSend,headerConfig);
         console.log(axiosResponse.data);
-        // this.props.history.push('/community')
+        this.props.history.push('/community')
     }
     // submitButton = (e) =>{
     //     this.props.history.push('/community')
@@ -88,8 +87,8 @@ class newCommunity extends Component {
         return (<> 
         <div className="session-layout">
             <div className="row-wrap">
-                <p className="red-text">{this.state.msg}</p>
                 <form className="col s12" onSubmit={this.submitCommunity}>
+                <p className="red-text">{this.state.msg}</p>
                     <div className="row">
                         <div className="input-field col s6">
                             <input id="community-name" type="text" className = "validate" onChange={this.changeName}  value={this.state.name}/>

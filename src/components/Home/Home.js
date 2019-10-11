@@ -11,7 +11,9 @@ class Home extends Component {
                 <div className="bill-board -landing home">
                     <div className="row">
                         <h1>Competitive fun</h1>
-                        <p className="white-text">"Find others to play video games with, or organize how your games are played with friends.</p>
+                        <h3>
+                            <p className="white-text z-depth-4">"Find others to play video games with, or organize how your games are played with friends.</p>
+                            </h3>
                     </div>
                     <hr/>
                     <div className="col">
@@ -21,9 +23,9 @@ class Home extends Component {
                         <Link className="btn btn-primary btn-lg -x-full-width blue" to="/tournaments/new">create tournament</Link>
                         <Link className="btn btn-primary btn-lg -x-full-width red" to="/community/new">create community</Link>
                     </div>
-                    <div className="placeholder">
+                    {/* <div className="placeholder">
                         <img className="img" src="" alt="some bracket looking thing" />
-                    </div>
+                    </div> */}
                 </div>
                 <section className="featured-content">
                     <div className="container-fluid">
