@@ -12,7 +12,8 @@ class newCommunity extends Component {
         this.state = { 
             name: "",
             type:"",
-            description:""
+            description:"",
+            msg: ""
          }
     }
     changeName = (e) =>{
@@ -27,7 +28,34 @@ class newCommunity extends Component {
     submitCommunity = async (e) => {
         e.preventDefault();
         console.log(this.props.auth)
-
+        let formValid = true;
+        let msg = "";
+        for (let key in this.state) {
+            if ((this.state[key].length <1)&&(key !== 'msg')){
+                formValid = false;
+                msg = `${key} field is required...`
+                break;
+            }
+        }
+        if(this.state.name.toLowerCase() === this.state.name){
+            formValid = false;
+            msg = "You're community name is too short...."
+        }
+        else if(this.state.description.toLowerCase()===this.state.description){
+            formValid =false;
+            msg = "You should put something in the description...."
+        }else if (this.state !== this.state){
+            formValid = true;
+            msg = "thank you for creating a community."
+        }
+        if(formValid){
+            const userData={...this.state}
+            this.props.communityAction(userData)
+        }else{
+            this.setState({
+                msg
+            })
+        }
         const headerConfig = {
             headers: {
                 'content-type': 'application/json'
@@ -43,8 +71,12 @@ class newCommunity extends Component {
         // data.append('token',this.props.auth.token);
         console.log(data);
         const axiosResponse = await axios.post(submitCommunityUrl,dataToSend,headerConfig);
-        console.log(axiosResponse.data)
+        console.log(axiosResponse.data);
+        this.props.history.push('/community')
     }
+    // submitButton = (e) =>{
+    //     this.props.history.push('/community')
+    // }
     componentDidMount(){
         if(!this.props.auth.token){
             localStorage.setItem('loginPage','/community/new')
@@ -56,6 +88,7 @@ class newCommunity extends Component {
         <div className="session-layout">
             <div className="row-wrap">
                 <form className="col s12" onSubmit={this.submitCommunity}>
+                <p className="red-text">{this.state.msg}</p>
                     <div className="row">
                         <div className="input-field col s6">
                             <input id="community-name" type="text" className = "validate" onChange={this.changeName}  value={this.state.name}/>
@@ -81,7 +114,7 @@ class newCommunity extends Component {
                                     </div>
                         
                     </div>
-                    <button className="btn btn-primary btn-lg -x-full-width blue">Submit Your Community</button>
+                    <button onClick={this.submitButton} className="btn btn-primary btn-lg -x-full-width blue">Submit Your Community</button>
 
                 </form>
             </div>

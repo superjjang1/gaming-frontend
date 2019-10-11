@@ -5,13 +5,14 @@ import axios from 'axios';
 
 
 
+
 class TheCommunity extends Component {
     state = {communities: []}
     async componentDidMount(){
         const allCommunities = axios.get(`${window.apiHost}/community`)
-        console.log(allCommunities);
         allCommunities.then((resp)=>{
             const communities = resp.data;
+            console.log(communities)
             this.setState({
                 communities
             })
@@ -19,12 +20,14 @@ class TheCommunity extends Component {
         
     }
     render() { 
-        
+
+
         return ( <div className="col s3">
             <h1>Communities</h1>
             <div className="row">
-
+            
             <Communities communities ={this.state.communities}/>
+            
             </div>
         </div> );
     }

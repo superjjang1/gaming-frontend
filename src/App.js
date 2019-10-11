@@ -15,7 +15,7 @@ import newCommunity from './components/community/newCommunity';
 import myAccount from './components/account/myAccount';
 import Account from './components/account/account';
 import theCommunity from './components/community/theCommunity';
-
+import CommunityId from './components/community/aCommunity';
 function App() {
   return (<>
     <Router>
@@ -30,6 +30,7 @@ function App() {
     <Route exact path = "/my-account/edit" component ={myAccount}/>
     <Route exact path = "/my-account" component ={Account}/>
     <Route exact path = "/community" component={theCommunity}/>
+    <Route exact path = "/community/:communityId" component={CommunityId}/>
     </div>
 
     </Router> 

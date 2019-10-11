@@ -55,7 +55,7 @@ class RegisterComponent extends React.Component {
         if(this.state.pass.toLowerCase() === this.state.pass){
             // user doesn't have any uppercase characters
             formValid = false;
-            msg = "Youre password, must contain at least 1 uppercase letter";
+            msg = "Your password, must contain at least 1 uppercase letter";
             //check to see if there is a number in the password using regex
         }else if(!(/\d/.test(this.state.pass))){
             formValid = false;
@@ -89,7 +89,7 @@ class RegisterComponent extends React.Component {
                         <input onChange={this.changePass} value={this.state.pass} className="password-signup" placeholder="Password" type="password" />
                         <button className="sign-up-button">Sign up</button>
                     <div className="border-rule"></div>
-                        <div className="login-text align-left">Already have an AtlGaming account? <button className="btn-primary" onClick={()=>{this.props.changeModalContent('login')}}>Log in</button></div>
+                        <div className="login-text align-left">Already have an AtlGaming account? <button className="btn-primary" onClick={()=>{this.props.history.push('/login')}}>Log in</button></div>
                     </form>
                 </div> 
             </div>

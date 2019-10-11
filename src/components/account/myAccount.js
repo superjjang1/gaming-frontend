@@ -14,7 +14,10 @@ class myAccount extends Component {
         super(props);
         this.state = { 
             
-            profile:""
+            profile:"",
+            bannerUrl:"",
+            profileUrl:"",
+
             
         }
     }
@@ -30,19 +33,19 @@ class myAccount extends Component {
     }
     onButtonClick = (e)=>{
         e.preventDefault();
-    this.refs.fileUploader.click() 
+    this.refs.fileUploader1.click() 
     }
     onButtonClick2 =(e)=> {
         e.preventDefault();
-        this.refs.fileUploader1.click()
+        this.refs.fileUploader.click()
     }
     submitAccount = async (e) =>{
         e.preventDefault();
         // console.log(this.props.auth)
         // const file = document.getElementById('banner-image').files[0];
         // const file2 = document.getElementById('profile-image').files[0];
-        const file2 = this.state.profileUrl;
-        const file = this.state.bannerUrl;
+        const file = this.state.profileUrl;
+        const file2 = this.state.bannerUrl;
         console.log(file2);
         console.log(file);
         const headerConfig = {
@@ -74,6 +77,7 @@ class myAccount extends Component {
            this.props.history.push('/login')
        }
    }
+
     render() { 
         
         return (<> 
