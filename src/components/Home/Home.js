@@ -12,7 +12,7 @@ class Home extends Component {
                     <div className="row">
                         <h1>Competitive fun</h1>
                         <h3>
-                            <p className="white-text z-depth-4">"Find others to play video games with, or organize how your games are played with friends.</p>
+                            <p className="deep-purple-text text-lighten-3 z-depth-4">"Find others to play video games with, or organize how your games are played with friends."</p>
                             </h3>
                     </div>
                     <hr/>
