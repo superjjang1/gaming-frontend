@@ -43,8 +43,12 @@ class newCommunity extends Component {
         // data.append('token',this.props.auth.token);
         console.log(data);
         const axiosResponse = await axios.post(submitCommunityUrl,dataToSend,headerConfig);
-        console.log(axiosResponse.data)
+        console.log(axiosResponse.data);
+        this.props.history.push('/community')
     }
+    // submitButton = (e) =>{
+    //     this.props.history.push('/community')
+    // }
     componentDidMount(){
         if(!this.props.auth.token){
             localStorage.setItem('loginPage','/community/new')
@@ -81,7 +85,7 @@ class newCommunity extends Component {
                                     </div>
                         
                     </div>
-                    <button className="btn btn-primary btn-lg -x-full-width blue">Submit Your Community</button>
+                    <button onClick={this.submitButton} className="btn btn-primary btn-lg -x-full-width blue">Submit Your Community</button>
 
                 </form>
             </div>

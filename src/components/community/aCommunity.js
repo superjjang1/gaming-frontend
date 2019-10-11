@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 
 class CommunityId extends Component {
@@ -32,6 +33,13 @@ class CommunityId extends Component {
                     <div className="col s6">Description: <br/>{description}</div>
                     <div className="col s12">creator: {displayname}</div>
                 </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                
+                <Link className="btn btn-primary btn-lg -x-full-width blue" to="/community">Go Back</Link>
             </div>
          </>);
     }
