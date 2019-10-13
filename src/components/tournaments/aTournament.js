@@ -23,7 +23,27 @@ class TournamentId extends Component {
         const{name, game, date1, date2, description, participants, time, displayname} = this.state.tournament
         console.log(this.state.tournament);
         return(
-            <h1>Sanity</h1>
+            <div className="container-fluid">
+                <div>
+                    <h1>Welcome to {name}</h1>
+                </div>
+                <div className="row">
+                    <div className="col s6">Start: {date1}</div>
+                    <div className="col s6">End: {date2}</div>
+                    <div className="col s12">The Name of The Game: {game}</div>
+                    <div className="col s12">Description: {description}</div>
+                    <div className="col s12">Participants: {participants}</div>
+                    <div className="col s12">Starting at: {time}</div>
+                    <div className="col s12">Created by: {displayname}</div>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <Link className="btn btn-primary btn-lg -x-full-width blue" to="/tournaments">Go Back</Link>
+
+            </div>
         )
     }
 
