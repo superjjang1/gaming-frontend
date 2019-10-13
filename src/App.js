@@ -16,6 +16,8 @@ import myAccount from './components/account/myAccount';
 import Account from './components/account/account';
 import theCommunity from './components/community/theCommunity';
 import CommunityId from './components/community/aCommunity';
+import TournamentVenue from './components/tournaments/TournamentVenue';
+
 function App() {
   return (<>
     <Router>
@@ -25,12 +27,13 @@ function App() {
     <Route exact path="/register" component = {RegisterComponent}/>
     <Route exact path="/login" component={Login}/>
     <Route exact path="/tournaments/new" component={newTournament}/>
-    <Route exact path ="/tournaments" component={bracketTournament}/>
+    <Route exact path="/tournaments" component={TournamentVenue}/>
     <Route exact path = "/community/new" component = {newCommunity}/>
     <Route exact path = "/my-account/edit" component ={myAccount}/>
     <Route exact path = "/my-account" component ={Account}/>
     <Route exact path = "/community" component={theCommunity}/>
     <Route exact path = "/community/:communityId" component={CommunityId}/>
+    <Route exact path ="/community/:communityId" component={bracketTournament}/>
     </div>
 
     </Router> 
