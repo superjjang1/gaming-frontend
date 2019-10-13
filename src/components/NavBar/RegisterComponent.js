@@ -19,6 +19,8 @@ class RegisterComponent extends React.Component {
             this.setState({
                 msg: "This user already exists, please log in or create a new account."
             })
+        }else if((this.props.auth.msg ==='userAdded')&&(prevProps.auth.msg !== 'userAdded')){
+            this.props.history.push('/')
         }
     }
     changeEmail = (e) => {
@@ -64,6 +66,7 @@ class RegisterComponent extends React.Component {
         if(formValid){
             const userData={...this.state}
             this.props.registerAction(userData);
+            this.props.history.push('/');
         }else{
             this.setState({
                 msg
