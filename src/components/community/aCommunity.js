@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import communityAction from '../../actions/communityAction';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { join } from 'path';
+// import { join } from 'path';
 
 
 class CommunityId extends Component {
@@ -29,7 +29,7 @@ class CommunityId extends Component {
         console.log(dataToSend);
         axios.post(joinCommunityUrl,dataToSend)
         console.log(this.props);
-        this.props.history.push('community/:communityId');
+        this.props.history.push('/:communityId');
     }
     render() { 
         const { name , type , description, displayname } = this.state.community
@@ -52,7 +52,7 @@ class CommunityId extends Component {
                 <br/>
                 <br/>
                 <br/>
-                <button onClick={this.onJoin} className="btn btn-primary btn-lg -x-full-width red">Join us</button>
+                <button onClick={this.onJoin} className="btn btn-primary btn-lg -x-full-width red">don'tclickyet</button>
                 
                 <Link className="btn btn-primary btn-lg -x-full-width blue" to="/community">Go Back</Link>
             </div>

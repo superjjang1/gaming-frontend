@@ -12,7 +12,7 @@ class TheCommunity extends Component {
         const allCommunities = axios.get(`${window.apiHost}/community`)
         allCommunities.then((resp)=>{
             const communities = resp.data;
-            console.log(communities)
+            // console.log(communities)
             this.setState({
                 communities
             })

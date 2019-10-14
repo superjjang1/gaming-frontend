@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import axios from 'axios';
+// import {bindActionCreators} from 'redux';
+// import axios from 'axios';
 import {Link} from 'react-router-dom';
 import './account.css';
-import { truncateSync } from 'fs';
+// import { truncateSync } from 'fs';
 
 
 class Account extends Component {
@@ -13,13 +13,13 @@ class Account extends Component {
     }
     
     render() { 
-        console.log(this.props);
+        // console.log(this.props);
         const {displayname, imageUrl, bannerUrl, profile} = this.props.auth;
-        console.log(bannerUrl);
+        // console.log(bannerUrl);
         const bannerImage = `${window.apiHost}${bannerUrl}`;
         const profileImage = `${window.apiHost}${imageUrl}`;
         const defaultImage = `https://i.imgur.com/C2Cu4b0.jpg`;
-        console.log(bannerImage);
+        // console.log(bannerImage);
         
 
         return (<>
@@ -28,7 +28,7 @@ class Account extends Component {
                     <div className="cover_image">
                         {bannerUrl
                         ?
-                    <img src={bannerImage} alt="no image"/>
+                    <img src={bannerImage} alt="nopic"/>
                         :
                     <img src={defaultImage} alt="default"/>
                         }
@@ -45,7 +45,7 @@ class Account extends Component {
                                 <div className="profileuploader">
                                     {imageUrl
                             ?
-                            <img src={profileImage} alt="no image" className="circle left"/>
+                            <img src={profileImage} alt="nopic" className="circle left"/>
                             :
                             <img src={defaultImage} alt ="default" className = "circle left"/>
                         }

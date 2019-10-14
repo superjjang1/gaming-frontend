@@ -54,6 +54,7 @@ function Input(props) {
           placeholder="Input Your Competitors"
           onChange={props.onChangeOfInput}
           onKeyPress={props.onEnter}
+          className="white-text"
         />
         <button onClick={props.onClick}>Input!</button>
       </div>
@@ -61,7 +62,7 @@ function Input(props) {
   );
 }
 
-class bracketTournament extends Component {
+class BracketTournament extends Component {
   //input is rendered in App
   renderInput() {
     return (<div className="container-fluid">
@@ -503,4 +504,4 @@ class bracketTournament extends Component {
 }
 
  
-export default bracketTournament;
+export default BracketTournament;

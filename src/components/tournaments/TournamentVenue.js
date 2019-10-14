@@ -9,7 +9,7 @@ class TournamentVenue extends Component {
         const allTournaments = axios.get(`${window.apiHost}/tournaments`)
         allTournaments.then((resp)=>{
             const tournaments = resp.data;
-            console.log(tournaments)
+            // console.log(tournaments)
             this.setState({
                 tournaments
             })

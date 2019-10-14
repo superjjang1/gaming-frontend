@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 class TournamentCard extends Component {
     render() {
         const { date1, date2, date_added, description, game, name, participants, uid} = this.props.tournament
-        console.log(this.props.tournament.date1)
+        // console.log(this.props.tournament.date1)
         return(
             <div className="container-fluid">
                 <div className = "row">
