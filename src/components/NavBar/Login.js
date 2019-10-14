@@ -47,8 +47,8 @@ class Login extends Component {
                     <div className="login-form">
                         <form onSubmit={this.submitLogin}>
                             <p className="red-text">{this.state.msg}</p>
-                            <input onChange={this.changeEmail} value={this.state.email} className="email-signup" placeholder="Email address" />
-                            <input onChange={this.changePass} value={this.state.password} className="password-signup" placeholder="Password" type="password"/>
+                            <input onChange={this.changeEmail} value={this.state.email} className="email-signup white-text" placeholder="Email address" />
+                            <input onChange={this.changePass} value={this.state.password} className="password-signup white-text" placeholder="Password" type="password"/>
                             <button className="sign-up-button">Log In</button>
                             <div className="border-rule"></div>
                             <div className="login-text align-left">Don't have an account? <button onClick={()=>{this.props.history.push('/register')}} >Sign Up</button></div>

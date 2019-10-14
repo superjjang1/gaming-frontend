@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import communityAction from '../../actions/communityAction';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import { join } from 'path';
 
 
 class CommunityId extends Component {
@@ -19,9 +23,18 @@ class CommunityId extends Component {
         console.log(axiosResponse.data)
 
     }
+    onJoin =(e)=>{
+        const joinCommunityUrl = `${window.apiHost}/community/:communityId`
+        let dataToSend = {...this.state, token:this.props.auth.token}
+        console.log(dataToSend);
+        axios.post(joinCommunityUrl,dataToSend)
+        console.log(this.props);
+        this.props.history.push('community/:communityId');
+    }
     render() { 
         const { name , type , description, displayname } = this.state.community
         console.log(name, type, description, displayname)
+        console.log(this.state.community);
 
         return (<> 
             <div className="container-fluid">
@@ -32,17 +45,28 @@ class CommunityId extends Component {
                     <div className="col s6">What type of group? : <br/>{type} group</div>
                     <div className="col s6">Description: <br/>{description}</div>
                     <div className="col s12">creator: {displayname}</div>
+                    <div className="col s12">joined: {displayname}</div>
                 </div>
                 <br/>
                 <br/>
                 <br/>
                 <br/>
                 <br/>
+                <button onClick={this.onJoin} className="btn btn-primary btn-lg -x-full-width red">Join us</button>
                 
                 <Link className="btn btn-primary btn-lg -x-full-width blue" to="/community">Go Back</Link>
             </div>
          </>);
     }
 }
- 
-export default CommunityId;
+function mapStateToProps(state){
+    return{
+        auth: state.auth
+    }
+}
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        communityAction:communityAction
+    },dispatch)
+}
+export default connect(mapStateToProps,mapDispatchToProps)(CommunityId);

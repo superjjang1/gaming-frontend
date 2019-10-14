@@ -19,6 +19,8 @@ class RegisterComponent extends React.Component {
             this.setState({
                 msg: "This user already exists, please log in or create a new account."
             })
+        }else if((this.props.auth.msg ==='userAdded')&&(prevProps.auth.msg !== 'userAdded')){
+            this.props.history.push('/')
         }
     }
     changeEmail = (e) => {
@@ -64,6 +66,7 @@ class RegisterComponent extends React.Component {
         if(formValid){
             const userData={...this.state}
             this.props.registerAction(userData);
+            this.props.history.push('/');
         }else{
             this.setState({
                 msg
@@ -82,11 +85,11 @@ class RegisterComponent extends React.Component {
                 <div className="register-form">
                     <p className="form-msg">{this.state.msg}</p>
                     <form onSubmit={this.submitSignUp}>
-                        <input onChange={this.changeEmail} value={this.state.email} className="email-signup" placeholder="Email address" />
-                        <input onChange={this.changeDisplayName} value={this.state.displayname} className="display-signup" placeholder="Display name" />
-                        <input onChange={this.changeFirst} value={this.state.first} className="first-signup" placeholder="First name" />
-                        <input onChange={this.changeLast} value={this.state.last} className="last-signup" placeholder="Last name" />
-                        <input onChange={this.changePass} value={this.state.pass} className="password-signup" placeholder="Password" type="password" />
+                        <input onChange={this.changeEmail} value={this.state.email} className="email-signup white-text" placeholder="Email address" />
+                        <input onChange={this.changeDisplayName} value={this.state.displayname} className="display-signup white-text" placeholder="Display name" />
+                        <input onChange={this.changeFirst} value={this.state.first} className="first-signup white-text" placeholder="First name" />
+                        <input onChange={this.changeLast} value={this.state.last} className="last-signup white-text" placeholder="Last name" />
+                        <input onChange={this.changePass} value={this.state.pass} className="password-signup white-text" placeholder="Password" type="password" />
                         <button className="sign-up-button">Sign up</button>
                     <div className="border-rule"></div>
                         <div className="login-text align-left">Already have an AtlGaming account? <button className="btn-primary" onClick={()=>{this.props.history.push('/login')}}>Log in</button></div>
