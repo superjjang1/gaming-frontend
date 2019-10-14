@@ -182,18 +182,7 @@ class newTournament extends Component {
                                             <label htmlFor="textarea2">Game</label>
                                         </div>
                                     </div>
-                                    <div className="inline-field">
-                                        <span className="lbl">
-                                            <label className="field-label -required" htmlFor="tournament_url">URL</label>
-                                        </span>
-                                        <div className="input-group-addon">
-                                            <span className="tournament_subdomain"></span>
-                                            something.com/
-                                        </div>
-                                        <div className="control">
-                                            <input className="enforce-uniqueness form-control field" data-uniqueness-url="/tournaments/check_url_availability" onChange={this.changeUrl} type="text" value={this.state.url} name="tournament[url]" id="tournament_url"></input>
-                                        </div>
-                                    </div>
+                                    
                                     <div className="inline-field">
                                         <span className="field-label">Description</span>
                                         <div className="input-field col s12">
