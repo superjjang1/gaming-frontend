@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './newCommunity.css';
 import axios from 'axios';
-import { bindActionCreators } from '../../../../../../../../Library/Caches/typescript/3.5/node_modules/redux';
+import { bindActionCreators } from 'redux';
 import communityAction from '../../actions/communityAction';
 
 
