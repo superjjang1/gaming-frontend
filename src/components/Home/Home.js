@@ -20,7 +20,7 @@ class Home extends Component {
                         <br/>
                         <br/>
                         
-                        <Link className="btn btn-primary btn-lg -x-full-width blue" to="/tournaments/new">create tournament</Link>
+                        <Link className="btn btn-primary btn-lg -x-full-width blue" to="/tournament/new">create tournament</Link>
                         <Link className="btn btn-primary btn-lg -x-full-width red" to="/community/new">create community</Link>
                     </div>
                     {/* <div className="placeholder">

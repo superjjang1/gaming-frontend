@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 function Tournaments(props){
     const baseCards = props.tournaments.map((tournaments,i)=>{
-        console.log(tournaments);
+        // console.log(tournaments);
         return(
             <div key = {i} className="col s6">
                 <Link to={`/tournaments/${tournaments.id}`}>

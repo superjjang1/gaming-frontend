@@ -12,12 +12,13 @@ class TournamentId extends Component {
     }
     async componentDidMount(){
         const aTournament = this.props.match.params.tournamentId
+        console.log(aTournament);
         const url = `${window.apiHost}/tournaments/${aTournament}`
         const axiosResponse = await axios.get(url)
         this.setState({
             tournament: axiosResponse.data
         })
-        console.log(axiosResponse.data)
+        // console.log(axiosResponse.data)
     }
     render() {
         const{name, game, date1, date2, description, participants, time, displayname} = this.state.tournament

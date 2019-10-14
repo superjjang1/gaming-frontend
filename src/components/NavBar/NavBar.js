@@ -58,7 +58,7 @@ class NavBar extends Component {
                 <div className="row">
                     <nav className={navColor}>
                         <div className = "nav-wrapper">
-                            <Link to="/" className="left">AtlGaming</Link>
+                            <Link to="/" className="left">GameTime</Link>
                             {navLinks}
                         </div>
                     </nav>

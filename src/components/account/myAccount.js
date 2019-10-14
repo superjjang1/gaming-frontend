@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import axios from 'axios';
 import './myAccount.css';
-import {Button, Icon} from 'react-materialize';
+import {Button} from 'react-materialize';
 import accountAction from '../../actions/accountAction';
 
 

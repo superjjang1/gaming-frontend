@@ -4,12 +4,12 @@ import './communityCard.css';
 
 class CommunityCard extends Component {
     render() {
-        const { name , type , description, displayname, id } = this.props.community
-        console.log(this.props.community.displayname)
+        const { name , type , description, displayname } = this.props.community
+        // console.log(this.props.community.displayname)
         return(
             <div className="container-fluid">
                 <div className = "row">
-                    <div className="col s6">
+                    <div className="col s12">
                         <div className="card-panel blue-grey white-text z-depth-2">
                             <div className ="name-community card-title">Name: {name}</div>
                             <hr/>
