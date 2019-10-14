@@ -36,6 +36,7 @@ function App() {
     <Route exact path = "/community/:communityId" component={CommunityId}/>
     <Route exact path ="/community/:communityId" component={bracketTournament}/>
     <Route exact path ="/tournaments/:tournamentId" component={TournamentId}/>
+    <Route exact path="/tournaments/:tournamentId" component={bracketTournament}/>
     </div>
 
     </Router> 
