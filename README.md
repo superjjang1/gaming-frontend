@@ -7,6 +7,7 @@
 * [MVP](https://github.com/superjjang1/gaming-frontend#MVP)
 * [Stretch Goals](https://github.com/superjjang1/gaming-frontend#Stretch-Goals)
 * [Author](https://github.com/superjjang1/gaming-frontend#Author)
+* [ScreenShots Video](https://github.com/superjjang1/gaming-frontend#ScreenShots-Video)
 
 
 
@@ -45,3 +46,12 @@ have a badge
 Author
 ---
 [Sean Yim](https://github.com/superjjang1)
+
+ScreenShots Video
+---
+![Imgur](https://i.imgur.com/GFGtoR3.png)
+![Imgur](https://i.imgur.com/MtzvXoK.png)
+![Imgur](https://i.imgur.com/SCqzhao.png)
+![Imgur](https://i.imgur.com/8madG2G.png)
+![Imgur](https://i.imgur.com/byGzuoA.png)
+![Imgur](https://i.imgur.com/vTnTIwF.png)
