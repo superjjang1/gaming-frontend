@@ -1,68 +1,47 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GameTime
+========
+# Contents
+========
+* [Description](https://github.com/superjjang1/gaming-frontend#Description)
+* [Technologies Used](https://github.com/superjjang1/gaming-frontend#Technologies-Used)
+* [MVP](https://github.com/superjjang1/gaming-frontend#MVP)
+* [Stretch Goals](https://github.com/superjjang1/gaming-frontend#Stretch-Goals)
+* [Author](https://github.com/superjjang1/gaming-frontend#Author)
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+Description 
+---
+GameTime is a website made to just have fun with friends, and like-minded individuals in a more competitive
+fashion. Basically, you can create communities/tournaments between eachother, it could be going 1-on-1 in 
+a competitive game such as Starcraft, Street Fighter, or Tetris, or even just seeing who can get to a certain point in a game. It doesn't even have to be video games, you could even set it to Ping-Pong!. 
+It's all about having fun!
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Technologies Used
+---
+The following languages were used to create this website:
+* HTML
+* CSS
+* JavaScript
+* Materialize
+* express.js
+* mySql
+* React, Redux
 
-### `npm test`
+MVP
+---
+The Minimum Product I was going for, was to have atleast a tournament bracket made that users
+could interact with. Be able to Log-in, make a community, create a tournament.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Stretch Goals
+---
+* creating a messageboard within the communities, where only users that have joined/been approved can
+view
+* have tournament information be saved within the database, where the winner of that said tournament could
+have a badge
+* Game DB/api to make calls to, vgdb was something I was looking at, but was focused on geting MVP out first.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Author
+---
+[Sean Yim](https://github.com/superjjang1)
