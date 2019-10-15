@@ -55,5 +55,5 @@ ScreenShots Video
 ![Imgur](https://i.imgur.com/8madG2G.png)
 ![Imgur](https://i.imgur.com/byGzuoA.png)
 ![Imgur](https://i.imgur.com/vTnTIwF.png)
-![youtube]
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zgc2HRpR0Dg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![YOUTUBE](http://img.youtube.com/vi/zgc2HRpR0Dg/0.jpg)](http://www.youtube.com/watch?v=zgc2HRpR0Dg)
+
