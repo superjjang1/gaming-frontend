@@ -169,7 +169,7 @@ class newTournament extends Component {
                                             Tournament name
                                         </span>
                                         <div className="input-field col s12">
-                                            <textarea id="textarea2" className="materialize-textarea" data-length="30" onChange={this.changeName}  value={this.state.name}></textarea>
+                                            <textarea id="textarea2" className="materialize-textarea white-text" data-length="30" onChange={this.changeName}  value={this.state.name}></textarea>
                                             <label htmlFor="textarea2">Tournament Name</label>
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@ class newTournament extends Component {
                                             Game:
                                         </span>
                                         <div className="input-field col s12">
-                                            <textarea id="textarea2" className="materialize-textarea" data-length="30" onChange={this.changeGame}  value={this.state.game}></textarea>
+                                            <textarea id="textarea2" className="materialize-textarea white-text" data-length="30" onChange={this.changeGame}  value={this.state.game}></textarea>
                                             <label htmlFor="textarea2">Game</label>
                                         </div>
                                     </div>
@@ -186,7 +186,7 @@ class newTournament extends Component {
                                     <div className="inline-field">
                                         <span className="field-label">Description</span>
                                         <div className="input-field col s12">
-                                            <textarea id="textarea2" className="materialize-textarea" data-length="400" onChange={this.changeDescription}  value={this.state.description} ></textarea>
+                                            <textarea id="textarea2" className="materialize-textarea white-text" data-length="400" onChange={this.changeDescription}  value={this.state.description} ></textarea>
                                             <label htmlFor="textarea2">400 Character limit</label>
                                         </div>
                                     </div>
@@ -195,7 +195,7 @@ class newTournament extends Component {
                                         <div className="input-field col s12" id="participants">
                                             <label htmlFor="participants">
                                             </label>
-                                            <select onChange={this.changeParticipants}  value={this.state.participants} type="number" className="validate" min="0" >
+                                            <select onChange={this.changeParticipants}  value={this.state.participants} type="number" className="validate white-text" min="0" >
                                                 <option value="undefined" />
                                                 <option value="4">4</option>
                                                 <option value="8">8</option>

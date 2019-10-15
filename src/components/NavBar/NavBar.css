@@ -6,17 +6,13 @@
     right: 0;
     z-index: 1030;
     height: 64px;
-    line-height: 64px;
-    padding: 0 16px;
-        padding-top: 0px;
-        padding-right: 16px;
-        padding-bottom: 0px;
-        padding-left: 16px;
+    /* line-height: 64px; */
     }
-.nav nav {
-    box-shadow: none;
-}
-.nav ul li:hover{
+
+.nav-item:hover{
     border-bottom: 2px solid white;
     background-color: gray;
+}
+.nav-item {
+    padding: 3px;
 }

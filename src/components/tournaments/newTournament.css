@@ -10,7 +10,7 @@ body {
     line-height: 1.42857143;
     color: #d8d8d8;
     background-color: #272a33;
-    font-style: inherit;
+    font-style: inherit white;
 
 }
 .form-panel{
@@ -38,4 +38,21 @@ fieldset{
 }
 input textarea  {
     color: white !important;
+}
+input {
+    color: white !important;
+}
+.input-field label {
+    color: #fff;
+  }
+  .input-field .prefix.active {
+    color: #fff;
+  }
+
+  .input-field input[type=text]:focus + label {
+    color: #fff !important;
+  }
+
+.input[type=text]:not(.browser-default) {
+    color: #fff !important;
 }

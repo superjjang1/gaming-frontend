@@ -17,7 +17,7 @@ class TournamentVenue extends Component {
     }
     render() { 
         return (
-            <div className="col s3">
+            <div className="col s12 m6">
                 <h1>Tournaments</h1>
                 <div className="row">
                    <Tournaments tournaments = {this.state.tournaments}/> 
