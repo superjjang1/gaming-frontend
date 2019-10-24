@@ -1,15 +1,23 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 // import {bindActionCreators} from 'redux';
-// import axios from 'axios';
+import axios from 'axios';
 import {Link} from 'react-router-dom';
 import './account.css';
 // import { truncateSync } from 'fs';
-
+import Communities from '../Utility/Communities';
 
 class Account extends Component {
     state ={
-        test : true
+        test : true,
+        communities: []
+    }
+    componentDidMount(){
+        const communitea = axios.get(`${window.apiHost}/my-account`);
+        communitea.then((resp)=>{
+            let communities = resp.data;
+            console.log(communities);
+        })
     }
     
     render() { 
@@ -66,6 +74,9 @@ class Account extends Component {
                     </div>
                 </div>
             <Link to="/my-account/edit"> Update your profile </Link>
+            <br/>
+            <Communities communities ={this.state.communities}/>
+
             </div>
             
         </>);

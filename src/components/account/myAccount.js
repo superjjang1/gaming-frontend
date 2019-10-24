@@ -16,7 +16,7 @@ class myAccount extends Component {
             
             profile:"",
             bannerUrl:"",
-            profileUrl:"",
+            profileUrl:""
 
             
         }
