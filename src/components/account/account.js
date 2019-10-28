@@ -10,16 +10,17 @@ import Communities from '../Utility/Communities';
 class Account extends Component {
     state ={
         test : true,
-        communiteas: []
+        communities: []
     }
-    componentDidMount(){
+    async componentDidMount(){
         const communitea = axios.get(`${window.apiHost}/my-account`);
         communitea.then((resp)=>{
-            let communiteas = resp.data;
-            console.log(communiteas);
-            this.setState({communiteas})
+            let communities = resp.data;
+            console.log(communities);
+            this.setState({communities})
         })
-        console.log(this.state.communiteas)
+        console.log(this.state);
+        console.log(this.state.communities)
     }
     
     render() { 
@@ -77,7 +78,7 @@ class Account extends Component {
                 </div>
             <Link to="/my-account/edit"> Update your profile </Link>
             <br/>
-            {/* <Communities communities ={this.state.communiteas}/> */}
+            <Communities communities ={this.state.communities}/>
 
             </div>
             
