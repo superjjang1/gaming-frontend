@@ -34,7 +34,7 @@ class NavBar extends Component {
         }else {
             navLinks = 
             <div id="nav-mobile" className ="nav-wrapper right">
-                      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i className="material-icons">menu</i></a>
 
                 <NavLink className ="non-nav-item">
                     Welcome, {this.props.auth.displayname}
