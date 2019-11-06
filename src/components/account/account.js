@@ -78,7 +78,7 @@ class Account extends Component {
                 </div>
             <Link to="/my-account/edit"> Update your profile </Link>
             <br/>
-            {/* <Communities communities ={this.state.communities}/> */}
+            <Communities communities ={this.state.communities}/>
 
             </div>
             
